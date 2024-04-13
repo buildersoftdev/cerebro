@@ -93,7 +93,7 @@ namespace Vortex.Core.Services.Routing
                 ApplicationName = applicationDto.Name,
                 ProductionInstanceType = request.ProductionInstanceType,
                 ConsumptionSettings = request.ConsumptionSettings,
-                 SubscriptionName = request.SubscriptionName,
+                SubscriptionName = request.SubscriptionName,
 
             }, request.Application);
 
@@ -388,6 +388,10 @@ namespace Vortex.Core.Services.Routing
         public InternalConsumeMessageResponse ConsumeNextMessage(Guid clientId, int addressId, int partitionId, long acknowledgedEntry)
         {
             // implement next messageConsume.
+
+            // TODO:
+            // create a new service as outbound service, which it will do the link between Subscription, partition, address and client
+
 
             throw new NotImplementedException();
         }

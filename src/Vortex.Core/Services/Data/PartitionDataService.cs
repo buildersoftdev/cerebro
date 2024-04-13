@@ -1,4 +1,5 @@
-﻿using Vortex.Core.Abstractions.Factories;
+﻿using Microsoft.Extensions.Logging.Abstractions;
+using Vortex.Core.Abstractions.Factories;
 using Vortex.Core.Abstractions.Repositories.Data;
 using Vortex.Core.Abstractions.Services;
 using Vortex.Core.Abstractions.Services.Data;
@@ -49,7 +50,7 @@ namespace Vortex.Core.Services.Data
                 {
                     _partitionDataRepository.CloseConnection();
                 }
-               
+
                 disposed = true;
             }
         }
@@ -62,7 +63,28 @@ namespace Vortex.Core.Services.Data
 
         public void PutTemporaryForDistribution(ReadOnlySpan<byte> entryId, ReadOnlySpan<byte> entity)
         {
-            throw new NotImplementedException();
+            _partitionDataRepository
+                .PutTemporary(entryId, entity);
+        }
+
+        public byte[]? Get(byte[] entryId)
+        {
+            var data = _partitionDataRepository.Get(entryId);
+            if (data is null)
+                return null;
+
+            return _partitionDataRepository.Get(entryId);
+        }
+
+        public bool TryGet(byte[] entryId, out byte[] entity)
+        {
+            entity = Get(entryId)!;
+
+            if (entity is null)
+                return false;
+
+            return true;
+
         }
     }
 }

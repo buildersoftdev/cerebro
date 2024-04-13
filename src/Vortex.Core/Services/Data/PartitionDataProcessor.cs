@@ -93,7 +93,7 @@ namespace Vortex.Core.Services.Data
 
 
             cleanMemoryCount++;
-            if(cleanMemoryCount == 6)
+            if (cleanMemoryCount == 6)
             {
                 GC.Collect(2);
                 GC.WaitForPendingFinalizers();

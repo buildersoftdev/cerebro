@@ -5,12 +5,11 @@
         void Put(ReadOnlySpan<byte> entryId, ReadOnlySpan<T> entity);
         void PutTemporaryForDistribution(ReadOnlySpan<byte> entryId, ReadOnlySpan<T> entity);
 
-        //T Get(long entryId);
+        byte[]? Get(byte[] entryId);
+        bool TryGet(byte[] entryId, out byte[] entity);
+
         //T GetNext(long entryId);
-
-        //bool TryGet(long entryId, out T entity);
         //bool TryGetNext(long entryId, out T entity);
-
         //void Delete(long entryId);
     }
 }
