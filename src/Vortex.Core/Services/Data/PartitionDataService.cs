@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging.Abstractions;
-using Vortex.Core.Abstractions.Factories;
+﻿using Vortex.Core.Abstractions.Factories;
 using Vortex.Core.Abstractions.Repositories.Data;
 using Vortex.Core.Abstractions.Services;
 using Vortex.Core.Abstractions.Services.Data;

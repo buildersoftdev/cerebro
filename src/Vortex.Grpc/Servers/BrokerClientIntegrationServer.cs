@@ -335,7 +335,7 @@ namespace Vortex.Grpc.Servers
 
             var clientConnection = _clientConnectionService.GetClientConnection(clientId);
             if (clientConnection == null)
-                throw new RpcException(new Status(StatusCode.Aborted, "Application Connection does not exists."));
+                throw new RpcException(new Status(StatusCode.Aborted, "Application connection does not exists."));
 
             try
             {

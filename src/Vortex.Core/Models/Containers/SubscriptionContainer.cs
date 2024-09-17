@@ -1,6 +1,4 @@
-﻿using Vortex.Core.Abstractions.Background;
-using Vortex.Core.Models.BackgroundTimerRequests;
-using Vortex.Core.Models.Entities.Entries;
+﻿using Vortex.Core.Models.Entities.Entries;
 
 namespace Vortex.Core.Models.Containers
 {

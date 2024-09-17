@@ -9,7 +9,6 @@ using Vortex.Core.Models.BackgroundRequests;
 using Vortex.Core.Models.Common.Clients.Applications;
 using Vortex.Core.Models.Configurations;
 using Vortex.Core.Models.Data;
-using Vortex.Core.Models.Dtos.Applications;
 using Vortex.Core.Models.Entities.Clients.Applications;
 using Vortex.Core.Models.Routing.Integrations;
 using Vortex.Core.Utilities.Consts;
@@ -58,7 +57,7 @@ namespace Vortex.Core.Services.Routing
             (var applicationDto, var message) = _applicationService.GetApplication(request.Application);
 
             // TODO: Add settings for the node. If new Applications can be created on the spot from the vortex clients.
-            // For now, we are igonring this part.
+            // For now, we are ignoring this part.
 
             _logger.LogInformation($"Application [{request.Application}] client requested new connection from [{request.ClientHost}]");
 
@@ -159,6 +158,7 @@ namespace Vortex.Core.Services.Routing
 
             // TODO:
             // load subscription to memory
+            // nope adding application-address subscriptions it looks to be the last thing :p
             _serverCoreStateManager.LoadApplicationSubscriptionsInMemory(applicationDto.Id, address.Alias, request.SubscriptionName);
 
             return new ClientConnectionResponse()
